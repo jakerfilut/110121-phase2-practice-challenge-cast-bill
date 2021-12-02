@@ -1,13 +1,23 @@
 import React from 'react';
+import BillCard from "./BillCard"
 
-export default function BillCollection() {
-  // Your code here
+function BillCollection({billData, yourCast, fireBill }) {
+
+const mapBillData = billData.map((bill) =>(
+<BillCard yourCast={yourCast}
+ key={bill.id} 
+ bill={bill}
+ fireBill={fireBill}
+ />
+))
 
   return (
     <div className="ui four column grid">
       <div className="row">
-        {/*...and here..*/}
+        {mapBillData}
       </div>
     </div>
   );
 }
+
+export default BillCollection
